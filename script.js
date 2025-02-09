@@ -1,15 +1,31 @@
 const CONTAINER = document.querySelector(".container")
+let pixelSize = 16;
 
-for (let i = 0; i < 16*16; i++){
-    const pixel = document.createElement("div");
-    pixel.classList.add("pixel");
-    CONTAINER.appendChild(pixel);
+generateGrid(pixelSize);
+
+function generateGrid (pixelSize) { 
+    CONTAINER.innerHTML= "";
+    for (let i = 0; i < pixelSize*pixelSize; i++){
+        const pixel = document.createElement("div");
+        pixel.classList.add("pixel");
+        pixel.style.width = `${960 / pixelSize}px`;
+        pixel.style.height = `${960 / pixelSize}px`;
+
+        pixel.addEventListener("mouseenter", ()=>{
+            pixel.style.backgroundColor = "grey";
+        })
+        pixel.addEventListener("mouseleave", ()=>{
+            pixel.style.backgroundColor = "";
+        })
+
+        CONTAINER.appendChild(pixel);
+    }
 }
 
-const grid = document.querySelectorAll(".pixel");
+let btn = document.querySelector("button")
 
-grid.forEach((square) =>{
-    square.addEventListener("mouseenter", ()=>{
-        square.style.backgroundColor = "grey";
-    })
+btn.addEventListener("click", ()=>{
+    pixelSize = parseInt(prompt("What size of the pixels?"));
+    generateGrid(pixelSize);
 })
+
