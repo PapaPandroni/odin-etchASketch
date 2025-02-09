@@ -14,9 +14,9 @@ function generateGrid (pixelSize) {
         pixel.addEventListener("mouseenter", ()=>{
             pixel.style.backgroundColor = "grey";
         })
-        pixel.addEventListener("mouseleave", ()=>{
+        /*pixel.addEventListener("mouseleave", ()=>{
             pixel.style.backgroundColor = "";
-        })
+        })*/
 
         CONTAINER.appendChild(pixel);
     }
