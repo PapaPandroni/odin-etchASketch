@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+
+}
+
+.container {
+    display: flex;
+    width: 960px;
+    height: 960px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pixel {
+    flex-basis: 60px;
+    height: 60px;
+}
